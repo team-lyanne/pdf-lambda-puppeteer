@@ -1,7 +1,7 @@
 import { Helper } from "./Helper";
 import { GeneratorFunction } from "./types/GeneratorTypes";
-import { getTemplate } from "./templates/pdf-template";
 import { waterDamageTemplate } from "./templates/joint_report_water_damage";
+import mapReportFields from "./FieldMapper";
 
 export class PDFGenerator {
   /**
@@ -11,7 +11,34 @@ export class PDFGenerator {
    */
   static getPDF: GeneratorFunction = async (event) => {
     try {
-      const html = waterDamageTemplate({ name: "Keshav" });
+      // Stubbing values for now
+      console.log(event.body);
+      event.reportFields = {
+        building_type: "Immeuble en copropriété",
+        date: "23/02/1990",
+        recent_building: "NON",
+        leakage_test: "OUI",
+        origin_found: "OUI",
+        repaired: "OUI",
+        craftman_responsibility: "OUI",
+        craftman_reason: "OUI",
+        home_usage_a: "OUI",
+        termination_a: "OUI",
+        seasonal_furnished_a: "OUI",
+        damage_a: "OUI",
+        category_a: "Syndic",
+        owner_occupant_a: "OUI",
+        termination_b: "NON",
+        seasonal_furnished_b: "NON",
+        home_usage_b: "NON",
+        damage_b: "NON",
+        category_b: "Gérant de l'immeuble",
+        owner_occupant_b: "NON",
+        leakage_cause: "Fuite sur canalisation",
+        pipe_owner: "Commune"
+      }
+      const attributes = mapReportFields(event.reportFields);
+      const html = waterDamageTemplate(attributes);
       const options = {
         path: process.argv[3],
         format: 'A4',
