@@ -27,7 +27,7 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 functions:
-  getPDF:
+  buildReportPDF:
     handler: handler.buildReport
     memorySize: 1024 # Setting a higher RAM size to facilitate PDF generation
     events:

@@ -11,38 +11,9 @@ export class PDFGenerator {
    */
   static buildReport: GeneratorFunction = async (event) => {
     try {
-      // Stubbing values for now
-      // event.reportFields = {
-      //   building_type: "Immeuble en copropriété",
-      //   date: "23/02/1990",
-      //   address: "15 rue yves toudic",
-      //   syndic_name: "Toto",
-      //   syndic_address: "Mich 75010 Paris",
-      //   recent_building: "NON",
-      //   leakage_test: "OUI",
-      //   origin_found: "OUI",
-      //   repaired: "OUI",
-      //   craftman_responsibility: "OUI",
-      //   craftman_reason: "OUI",
-      //   home_usage_a: "OUI",
-      //   termination_a: "OUI",
-      //   seasonal_furnished_a: "OUI",
-      //   damage_a: "OUI",
-      //   category_a: "Syndic",
-      //   owner_occupant_a: "OUI",
-      //   termination_b: "NON",
-      //   seasonal_furnished_b: "NON",
-      //   home_usage_b: "NON",
-      //   damage_b: "NON",
-      //   category_b: "Gérant de l'immeuble",
-      //   owner_occupant_b: "NON",
-      //   leakage_cause: "Fuite sur canalisation",
-      //   pipe_owner: "Commune",
-      //   pipe_role: "Alimentation",
-      //   pipe_accessibility: "Accessible",
-      //   infiltrations: "Façade, Fenêtre ou porte-fenêtre, Joint d'étanchéité (sanitaire ou carrelage)"
-      // }
-      const attributes = mapReportFields(event.body);
+      // It looks like Make is sending the body as an array of objects.
+      // We only want the first one.
+      const attributes = mapReportFields(event.body[0]);
       const html = waterDamageTemplate(attributes);
       const options = {
         path: process.argv[3],
