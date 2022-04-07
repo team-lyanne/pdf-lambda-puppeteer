@@ -15,6 +15,8 @@ export class Helper {
       });
 
       const page = await browser.newPage();
+      await page.setViewport({width: 1200, height: 2950, deviceScaleFactor: 1});
+      await page.emulateMediaType('screen');
       const loaded = page.waitForNavigation({
         waitUntil: "load",
       });

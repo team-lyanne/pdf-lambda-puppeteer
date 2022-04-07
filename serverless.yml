@@ -1,5 +1,4 @@
-service:
-  name: pdf-lambda-puppeteer
+service: pdf-lambda-puppeteer
 
 custom:
   webpack:
@@ -16,9 +15,9 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs12.x
-  profile: personal # Modify or remove accordingly
-  region: ${opt:region, 'ap-south-1'}
+  runtime: nodejs14.x
+  profile: default # Modify or remove accordingly
+  region: ${opt:region, 'eu-west-3'}
   endpointType: REGIONAL
   stage: ${opt:stage, 'dev'}
   apiGateway:
