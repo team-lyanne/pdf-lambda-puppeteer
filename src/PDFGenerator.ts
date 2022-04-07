@@ -35,7 +35,10 @@ export class PDFGenerator {
         category_b: "Gérant de l'immeuble",
         owner_occupant_b: "NON",
         leakage_cause: "Fuite sur canalisation",
-        pipe_owner: "Commune"
+        pipe_owner: "Commune",
+        pipe_role: "Alimentation",
+        pipe_accessibility: "Accessible",
+        infiltrations: "Façade, Fenêtre ou porte-fenêtre, Joint d'étanchéité (sanitaire ou carrelage)"
       }
       const attributes = mapReportFields(event.reportFields);
       const html = waterDamageTemplate(attributes);

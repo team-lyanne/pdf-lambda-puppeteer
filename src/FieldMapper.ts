@@ -19,7 +19,11 @@ const mapReportFields = (report) => {
     report.ingress = report.leakage_cause === "Infiltrations";
     report.other_cause = report.leakage_cause === "Autre cause";
     report.common_pipe = report.pipe_owner === "Commune";
-    report.private_pipe = report.pipe_owner === "Commune";
+    report.private_pipe = report.pipe_owner === "Particulier";
+    report.supply = report.pipe_role === "Alimentation";
+    report.evacuation = report.pipe_role === "Evacuation";
+    report.accessible = report.pipe_accessibility === "Evacuation";
+    report.unaccessible = report.pipe_accessibility === "Evacuation";
     report.craftman_responsibility = report.craftman_responsibility === 'OUI';
     report.craftman_reason = report.craftman_reason === 'OUI';
     report.termination_a = report.termination_a === 'OUI';
@@ -40,6 +44,7 @@ const mapReportFields = (report) => {
     report.manager_b = report.category_b === "Gérant de l'immeuble";
     report.syndic_b = report.category_b === "Syndic";
     report.renter_b = report.category_b === "Locataire ou occupant non propriétaire";
+    report.infiltrations = report.infiltrations.split(", ");
     console.log(report);
     return report;
 }
