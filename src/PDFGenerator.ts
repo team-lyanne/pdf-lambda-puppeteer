@@ -16,6 +16,9 @@ export class PDFGenerator {
       event.reportFields = {
         building_type: "Immeuble en copropriété",
         date: "23/02/1990",
+        address: "15 rue yves toudic",
+        syndic_name: "Toto",
+        syndic_address: "Mich 75010 Paris",
         recent_building: "NON",
         leakage_test: "OUI",
         origin_found: "OUI",
