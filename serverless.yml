@@ -1,3 +1,5 @@
+org: bearinmind
+app: pdf-lambda-puppeteer
 service: pdf-lambda-puppeteer
 
 custom:

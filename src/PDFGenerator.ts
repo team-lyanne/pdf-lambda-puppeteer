@@ -11,10 +11,12 @@ export class PDFGenerator {
    */
   static buildReport: GeneratorFunction = async (event) => {
     try {
-      // It looks like Make is sending the body as an array of objects.
-      // We only want the first one.
-      console.log(event.body);
-      const body = JSON.parse(JSON.parse(event.body));
+      // Body is encoded in base64...
+      const decodedBody = atob(event.body)
+      // ... and it looks like it's embedded twice in JSON by Make
+      const body = JSON.parse(JSON.parse(decodedBody));
+      // Make aggregates our object as an array. We only want the first item.
+      // Also, we need to map quite a few fields for proper use in the template.
       const attributes = mapReportFields(body[0]);
       const html = waterDamageTemplate(attributes);
       const options = {
