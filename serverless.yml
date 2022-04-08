@@ -6,21 +6,17 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+    packager: yarn
   prune:
     automatic: true
     number: 5
-
-plugins:
-  - serverless-webpack
-  - serverless-offline
-  - serverless-prune-plugin
 
 provider:
   name: aws
   runtime: nodejs14.x
   profile: default # Modify or remove accordingly
-  region: ${opt:region, 'eu-west-3'}
-  endpointType: REGIONAL
+  region: eu-west-3
+  endpointType: regional
   stage: ${opt:stage, 'dev'}
   apiGateway:
     binaryMediaTypes:
@@ -36,3 +32,8 @@ functions:
       - http:
           method: post
           path: /joint_reports/water_damage
+
+plugins:
+  - serverless-webpack
+  - serverless-prune-plugin
+  - serverless-offline

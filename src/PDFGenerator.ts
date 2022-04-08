@@ -12,7 +12,7 @@ export class PDFGenerator {
   static buildReport: GeneratorFunction = async (event) => {
     try {
       // Body is encoded in base64...
-      const decodedBody = atob(event.body)
+      const decodedBody = Buffer.from(event.body, 'base64').toString();
       // ... and it looks like it's embedded twice in JSON by Make
       const body = JSON.parse(JSON.parse(decodedBody));
       // Make aggregates our object as an array. We only want the first item.
