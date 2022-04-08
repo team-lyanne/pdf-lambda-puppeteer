@@ -17,7 +17,8 @@ const mapReportFields = (report) => {
     report.overflow = report.leakage_cause === "Fuite ou débordement d'appareils à effet d'eau";
     report.gutter = report.leakage_cause === "Fuite ou débordement de chéneaux ou de gouttières";
     report.ingress = report.leakage_cause === "Infiltrations";
-    report.other_cause = report.leakage_cause === "Autre cause";
+    report.ice = report.leakage_cause === "Gel";
+    report.other = report.leakage_cause === "Autre cause";
     report.common_pipe = report.pipe_owner === "Commune";
     report.private_pipe = report.pipe_owner === "Particulier";
     report.supply = report.pipe_role === "Alimentation";
@@ -25,7 +26,6 @@ const mapReportFields = (report) => {
     report.accessible = report.pipe_accessibility === "Evacuation";
     report.unaccessible = report.pipe_accessibility === "Evacuation";
     report.craftman_responsibility = report.craftman_responsibility === 'OUI';
-    report.craftman_reason = report.craftman_reason === 'OUI';
     report.termination_a = report.termination_a === 'OUI';
     report.seasonal_furnished_a = report.seasonal_furnished_rental_a === 'OUI';
     report.home_usage_a = report.home_usage_a === 'OUI';
@@ -45,7 +45,6 @@ const mapReportFields = (report) => {
     report.syndic_b = report.category_b === "Syndic";
     report.renter_b = report.category_b === "Locataire ou occupant non propriétaire";
     report.infiltrations = report.infiltrations.split(", ");
-    console.log(report);
     return report;
 }
 

@@ -32,6 +32,9 @@ functions:
       - http:
           method: post
           path: /joint_reports/water_damage
+      - http:
+          method: get
+          path: /joint_reports/water_damage/test
 
 plugins:
   - serverless-webpack
