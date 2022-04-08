@@ -11,9 +11,8 @@ export class PDFGenerator {
    */
   static buildReport: GeneratorFunction = async (event) => {
     try {
-      // Make aggregates our object as an array. We only want the first item.
-      // Also, we need to map quite a few fields for proper use in the template.
-      const attributes = mapReportFields(event[0]);
+      // We need to map quite a few fields for proper use in the template.
+      const attributes = mapReportFields(event);
       const html = waterDamageTemplate(attributes);
       const options = {
         path: process.argv[3],

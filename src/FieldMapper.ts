@@ -27,7 +27,7 @@ const mapReportFields = (report) => {
     report.craftman_responsibility = report.craftman_responsibility === 'OUI';
     report.craftman_reason = report.craftman_reason === 'OUI';
     report.termination_a = report.termination_a === 'OUI';
-    report.seasonal_furnished_a = report.seasonal_furnished_a === 'OUI';
+    report.seasonal_furnished_a = report.seasonal_furnished_rental_a === 'OUI';
     report.home_usage_a = report.home_usage_a === 'OUI';
     report.damage_a = report.damage_a === 'OUI';
     report.owner_occupant_a = report.owner_occupant_a === 'OUI';
@@ -36,7 +36,7 @@ const mapReportFields = (report) => {
     report.syndic_a = report.category_a === "Syndic";
     report.renter_a = report.category_a === "Locataire ou occupant non propriétaire";
     report.termination_b = report.termination_b === 'OUI';
-    report.seasonal_furnished_b = report.seasonal_furnished_b === 'OUI';
+    report.seasonal_furnished_b = report.seasonal_furnished_rental_b === 'OUI';
     report.home_usage_b = report.home_usage_b === 'OUI';
     report.damage_b = report.damage_b === 'OUI';
     report.owner_occupant_b = report.owner_occupant_b === 'OUI';
