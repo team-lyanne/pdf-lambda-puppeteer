@@ -12,9 +12,10 @@ export class PDFGenerator {
   static buildReport: GeneratorFunction = async (event) => {
     try {
       // Body is encoded in base64...
-      const decodedBody = Buffer.from(event.body, 'base64').toString();
-      // ... and it looks like it's embedded twice in JSON by Make
-      const body = JSON.parse(JSON.parse(decodedBody));
+      const decodedBody = event.body.toString("utf8");
+      console.log(JSON.parse(decodedBody));
+      const body = JSON.parse(decodedBody);
+      console.log(body);
       // Make aggregates our object as an array. We only want the first item.
       // Also, we need to map quite a few fields for proper use in the template.
       const attributes = mapReportFields(body[0]);
