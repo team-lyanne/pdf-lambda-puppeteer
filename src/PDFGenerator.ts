@@ -13,7 +13,7 @@ export class PDFGenerator {
     try {
       // It looks like Make is sending the body as an array of objects.
       // We only want the first one.
-      // console.log(event.body);
+      console.log(event.body);
       const body = JSON.parse(JSON.parse(event.body));
       const attributes = mapReportFields(body[0]);
       const html = waterDamageTemplate(attributes);
